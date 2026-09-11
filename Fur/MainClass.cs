@@ -2,10 +2,18 @@
 {
     public class InputHelpers
     {
-        /// Displays a prompt, reads console input, and attempts to convert it to type T.
+        /// <summary>
+        /// Displays a prompt, reads console input, and attempts to convert it to type <typeparamref name="T"/>.
         /// Retries until valid input is given.
-        /// Usage example:
-        /// int age = InputHelper.GetInput<int>("Enter your age: ");
+        /// </summary>
+        /// <typeparam name="T">The target type to convert the user input into (e.g., int, double, bool).</typeparam>
+        /// <param name="prompt">The message displayed to the user before reading input.</param>
+        /// <returns>The user's input safely converted to type <typeparamref name="T"/>.</returns>
+        /// <example>
+        /// <code>
+        /// int age = InputHelpers.GetInput&lt;int&gt;("Enter your age: ");
+        /// </code>
+        /// </example>
         public static T GetInput<T>(string prompt)
         {
             while (true)
