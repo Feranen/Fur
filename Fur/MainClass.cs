@@ -11,19 +11,22 @@
         /// <returns>The user's input safely converted to type <typeparamref name="T"/>.</returns>
         /// <example>
         /// <code>
-        /// int age = InputHelpers.GetInput&lt;int&gt;("Enter your age: ");
+        /// int age = Fur.InputHelpers.GetInputAndConvertInto&lt;int&gt;("Enter your age: ");
         /// </code>
         /// </example>
-        public static T GetInput<T>(string prompt)
+        public static T GetInputAndConvertInto<T>(string prompt, bool CanBeNull = false)
         {
             while (true)
             {
                 Console.Write(prompt);
                 string input = Console.ReadLine();
-
+                if (string.IsNullOrWhiteSpace(input) && CanBeNull == false)
+                {
+                    Console.WriteLine($"[Error] Input cannot be null or whitespace.");
+                    continue;
+                }
                 try
                 {
-                    // Convert the input string to the generic type T
                     return (T)Convert.ChangeType(input, typeof(T));
                 }
                 catch (FormatException)
