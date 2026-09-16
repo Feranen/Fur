@@ -18,7 +18,7 @@
         {
             while (true)
             {
-                Console.Write(prompt);
+                Console.WriteLine(prompt);
                 string input = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(input) && CanBeNull == false)
                 {
